@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %} My Site {% endblock %}</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/temp_home">Home</a>
+      <a href="/temp_about">About</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+  </body>
+</html>
