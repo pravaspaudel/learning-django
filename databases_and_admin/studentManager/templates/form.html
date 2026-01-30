@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{%block content %}
+
+<h1>fill up the detail , STUDENTS !!!</h1>
+
+<form method="POST">
+  {%csrf_token%} {{form.as_p}}
+  <button type="submit">submit</button>
+</form>
+
+{%endblock %}

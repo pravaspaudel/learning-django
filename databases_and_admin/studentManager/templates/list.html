@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<h1>List of students are</h1>
+
+<p>Click on student detail to edit them</p>
+
+<ul>
+  {% for student in students %}
+  <li>
+    {{student.name}} - {{student.age}} - {{student.grade}}
+
+    <a href="{%url 'update student' student.id %}">Edit</a>
+    <a href="{%url 'delete student' student.id %}">delete</a>
+  </li>
+
+  {% endfor %}
+</ul>
+
+{% endblock %}
