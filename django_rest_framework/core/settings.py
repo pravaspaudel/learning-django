@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'todo_apis',
-    'notes_apis'
+    'note_apis'
 ]
 
 REST_FRAMEWORK = {
