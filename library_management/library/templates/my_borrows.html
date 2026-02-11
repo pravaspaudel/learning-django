@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>My Borrows</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h2>My Borrowed Books</h2>
+    <table border="1">
+      <tr>
+        <th>Book</th>
+        <th>Borrowed At</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      {% for b in borrows %}
+      <tr>
+        <td>{{ b.book.title }}</td>
+        <td>{{ b.borrowed_at }}</td>
+        <td>{% if b.returned %}Returned{% else %}Borrowed{% endif %}</td>
+        <td>
+          {% if not b.returned %}
+          <a href="{% url 'return_book' b.id %}">Return</a>
+          {% else %} - {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4">You have no borrowed books.</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h2>Edit Book</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label>Title:</label
+      ><input
+        type="text"
+        name="title"
+        value="{{ book.title }}"
+        required
+      /><br /><br />
+      <label>Author:</label
+      ><input
+        type="text"
+        name="author"
+        value="{{ book.author }}"
+        required
+      /><br /><br />
+      <label>ISBN:</label
+      ><input
+        type="text"
+        name="isbn"
+        value="{{ book.isbn }}"
+        required
+      /><br /><br />
+      <label>Copies:</label
+      ><input
+        type="number"
+        name="copies"
+        value="{{ book.copies }}"
+        min="1"
+        required
+      /><br /><br />
+      <button type="submit">Save Changes</button>
+    </form>
+    <p>{{ message }}</p>
+  </body>
+</html>

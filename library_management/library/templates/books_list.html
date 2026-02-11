@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Books List</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h2>Books</h2>
+    <a href="{% url 'add_book' %}">Add New Book</a>
+
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Copies</th>
+        <th>Actions</th>
+      </tr>
+
+      {% for book in books %}
+      <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.isbn }}</td>
+        <td>{{ book.copies }}</td>
+        <td>
+          <a href="{% url 'edit_book' book.id %}">Edit</a> |
+          <a href="{% url 'delete_book' book.id %}">Delete</a>
+
+          {% if user.is_authenticated %} |
+          <a href="{% url 'borrow_book' book.id %}">Borrow</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No books available.</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

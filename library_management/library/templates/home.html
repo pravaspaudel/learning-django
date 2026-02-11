@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>library management system</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <h1>Welcome to library Management system</h1>
+    <p>Hello, {{name}}</p>
+
+    <p>
+      Click link to show book
+
+      <a href="http://127.0.0.1:8000/books"> Book </a>
+    </p>
+  </body>
+</html>
